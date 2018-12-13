@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { GetHocVienProvider } from '../../providers/get-hoc-vien/get-hoc-vien';
+import {DetailHvPage } from '../detail-hv/detail-hv'
 
 @Component({
   selector: 'page-hocvien',
@@ -136,5 +137,9 @@ export class HocvienPage implements OnInit {
         event.complete();
       }, 500);
     }
+  }
+
+  detailHV(hocvien){
+    this.navCtrl.push(DetailHvPage, hocvien);
   }
 }

@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
 import { HocvienPage } from '../pages/hocvien/hocvien';
 import { GetHocVienProvider } from '../providers/get-hoc-vien/get-hoc-vien';
+import { DetailHvPage } from '../pages/detail-hv/detail-hv'
 
 
 
@@ -19,6 +20,7 @@ import { GetHocVienProvider } from '../providers/get-hoc-vien/get-hoc-vien';
     HomePage,
     UsersPage,
     HocvienPage,
+    DetailHvPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { GetHocVienProvider } from '../providers/get-hoc-vien/get-hoc-vien';
     MyApp,
     HomePage,
     UsersPage,
-    HocvienPage
+    HocvienPage,
+    DetailHvPage
   ],
   providers: [
     StatusBar,

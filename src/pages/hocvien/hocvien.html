@@ -27,6 +27,7 @@
                 <p>Ma hoc vien: {{ hocvien.id }}</p>
                 <h1>Ten hoc vien: {{ hocvien.ten }}</h1>
                 <h3>Gioi tinh: {{ hocvien.gioiTinh?"Nam": "Nu" }}</h3>
+                <button ion-button (click)="detailHV(hocvien)">Chi tiết</button>
               </ion-card-content>
             </ion-card>
             <button ion-button (click)="editHV(hocvien.id)" *ngIf="isShowEdit">Sua</button>

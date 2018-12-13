@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 export class GetHocVienProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello GetHocVienProvider Provider');
   }
 
   getHocVien(){
