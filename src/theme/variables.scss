@@ -86,3 +86,16 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+ion-card img {
+  height: 200px;
+}
+#hoa-detail{
+  height: 200px;
+  width: 200px;
+}
+h4{
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}

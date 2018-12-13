@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>hocvien</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ng-container>
+    <h3>{{ isLoading?"Đang tải dữ liệu...":""}}</h3>
+    <ion-list>
+      <div *ngIf="!isLoading">
+        <div *ngIf="isShow">
+          <button ion-button color="secondary" (click)="addHocVien()">Thêm</button>
+          <button ion-button (click)="isShowEdit=!isShowEdit; isShow=!isShow">Sửa</button>
+          <button ion-button color="dark" (click)="isShowDel=!isShowDel; isShow=!isShow">Xóa</button>
+        </div>
+        <button ion-button color="danger" (click)="isShowDel=!isShowDel; isShow = !isShow" *ngIf="isShowDel">Xoa xong</button>
+        <button ion-button color="danger" (click)="isShowEdit=!isShowEdit; isShow = !isShow" *ngIf="isShowEdit">Sua xong</button>
+        <ion-list-header>{{ !isLoading?"THÔNG TIN HỌC VIÊN":""}}</ion-list-header>
+        <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+          <ion-item *ngFor="let hocvien of arHocVien1">
+            <ion-card>
+              <ion-card-header>
+                Thông tin của học viên thứ {{ hocvien.id }}
+              </ion-card-header>
+              <ion-card-content>
+                <p>Ma hoc vien: {{ hocvien.id }}</p>
+                <h1>Ten hoc vien: {{ hocvien.ten }}</h1>
+                <h3>Gioi tinh: {{ hocvien.gioiTinh?"Nam": "Nu" }}</h3>
+              </ion-card-content>
+            </ion-card>
+            <button ion-button (click)="editHV(hocvien.id)" *ngIf="isShowEdit">Sua</button>
+            <button ion-button color="danger" (click)="deleteHV(hocvien.id)" *ngIf="isShowDel">Xoa</button>
+          </ion-item>
+        </ion-item-group>
+      </div>
+    </ion-list>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-container>
+</ion-content>
